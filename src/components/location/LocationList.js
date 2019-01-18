@@ -3,17 +3,18 @@ import React, { Component } from 'react'
 export default class LocationList extends Component{
   render() {
     return (
-      <article>
-        <section>
-          <h1>Nasville North</h1>
-          <p>555 woodycrest ave</p>
-        </section>
-        <section>
-          <h1>Nashville South</h1>
-          <p>111 polk ave se</p>
-        </section>
-      </article>
+      <section className="locationClass">
+      <h1>Locations</h1>
+        {
+          this.props.locations.map(location =>
+            <div key={location.id}>
+              <h2>{location.name}</h2> <br />
+              {location.address}
+            </div>
+          )
+        }
+      </section>
     );
-
   }
 }
+// props are being read from the owning component- Kennel.js
